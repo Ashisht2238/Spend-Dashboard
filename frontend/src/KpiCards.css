@@ -1,0 +1,25 @@
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.kpi-card {
+  background: rgb(253, 251, 251);
+  border: 1px solid rgba(128, 128, 128, 0.35);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: left;
+}
+
+.kpi-label {
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+.kpi-value {
+  font-size: 28px;
+  font-weight: 600;
+  margin-top: 6px;
+}

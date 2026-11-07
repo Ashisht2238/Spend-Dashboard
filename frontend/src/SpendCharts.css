@@ -1,0 +1,53 @@
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.chart-card {
+  background: rgb(255, 252, 252);
+  border: 1px solid rgba(128, 128, 128, 0.35);
+  border-radius: 10px;
+  padding: 16px;
+  min-width: 0;
+}
+
+/* .chart-card.wide {
+  grid-column: 1 / 1;
+} */
+
+.chart-card h2 {
+  font-size: 18px;
+  margin: 0 0 12px;
+  text-align: left;
+}
+
+.chart-message {
+  opacity: 0.75;
+  padding: 40px 0;
+}
+
+.chart-card .recharts-cartesian-axis-tick-value {
+  fill: currentColor;
+}
+
+.chart-card .recharts-cartesian-grid line {
+  stroke: rgba(128, 128, 128, 0.3);
+}
+
+.chart-caption {
+  margin: 0 0 8px;
+  text-align: left;
+  opacity: 0.85;
+}
+
+.chart-card .recharts-pie-label-text {
+  fill: currentColor;
+}
+
+.chart-card.wide {
+  grid-column: span 2;
+  width: 96%;
+  min-width: 0;
+}
