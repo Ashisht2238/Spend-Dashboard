@@ -2,7 +2,7 @@
   :root {
     --text: #9ca3af;
     --text-h: #f3f4f6;
-    --bg: #16171d;
+    --bg: #1d161c;
     --border: #2e303a;
     --code-bg: #1f2028;
     --accent: #c084fc;
@@ -23,7 +23,7 @@ body {
 }
 
 #root {
---bg: #f4f6fa;
+--bg: #f8f8fa;
   --card: #ffffff;
   --text: #1c2430;
   --muted: #5f6b7a;
@@ -40,7 +40,7 @@ h1,
 h2 {
   font-family: var(--heading);
   font-weight: 500;
-  color: var(--text-h);
+  color: black
 }
 
 h1 {

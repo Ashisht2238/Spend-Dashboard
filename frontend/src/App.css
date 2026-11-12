@@ -24,7 +24,7 @@
 }
 
 .error-banner {
-  background: color-mix(in srgb, #ef4444 14%, var(--surface));
+  background: color-mix(in srgb, #ef4444 14%, var(--cards));
   border: 1px solid #ef4444;
   border-radius: 8px;
   padding: 10px 14px;
