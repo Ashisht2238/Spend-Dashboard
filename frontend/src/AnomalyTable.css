@@ -50,3 +50,22 @@
 .table-wrap .num {
   text-align: right;
 }
+
+@media (max-width: 600px) {
+  .table-card {
+    padding: 12px;
+  }
+
+  .table-card h2 {
+    font-size: 16px;
+  }
+
+  .table-wrap table {
+    font-size: 13px;
+  }
+
+  .table-wrap th,
+  .table-wrap td {
+    padding: 6px 8px;
+  }
+}

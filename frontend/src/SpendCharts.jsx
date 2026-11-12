@@ -59,14 +59,16 @@ function VendorChart({ filters }) {
   const { data, error } = useApiData("/api/spend/vendor", filters);
   return (
     <ChartCard title="Vendor-wise Spending" data={data} error={error}>
-      <ResponsiveContainer width="100%" height={460}>
+      <div className="chart-box chart-tall">
+      <ResponsiveContainer width="100%" height="100%">
         <BarChart
           data={data}
-          layout="vertical" 
+          layout="vertical"
+          margin={{ right: 12 }}
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis type="number" tickFormatter={formatLakhs}  />
-          <YAxis type="category" dataKey="vendor" width={130}  tick={{ fontSize: 14 }}/>
+          <YAxis type="category" dataKey="vendor" width={110} tick={{ fontSize: 12 }} />
           <Tooltip
             {...TOOLTIP_STYLE}
             cursor={{ fill: "rgba(128, 128, 128, 0.15)" }}
@@ -75,6 +77,7 @@ function VendorChart({ filters }) {
           <Bar dataKey="total_spend" name="Spend" fill="#7c3aed" />
         </BarChart>
       </ResponsiveContainer>
+      </div>
     </ChartCard>
   );
 }
@@ -83,10 +86,18 @@ function CategoryChart({ filters }) {
   const { data, error } = useApiData("/api/spend/category", filters);
   return (
     <ChartCard title="Category-wise Spending" data={data} error={error}>
-      <ResponsiveContainer width="100%" height={460}>
+      <div className="chart-box chart-tall">
+      <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data}  >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="category" interval={0} tick={{ fontSize: 12 }}  angle={-15} />
+          <XAxis
+            dataKey="category"
+            interval={0}
+            tick={{ fontSize: 12 }}
+            angle={-35}
+            textAnchor="end"
+            height={70}
+          />
           <YAxis tickFormatter={formatLakhs} />
           <Tooltip
             {...TOOLTIP_STYLE}
@@ -96,6 +107,7 @@ function CategoryChart({ filters }) {
           <Bar dataKey="total_spend" name="Spend" fill="#38bdf8" />
         </BarChart>
       </ResponsiveContainer>
+      </div>
     </ChartCard>
   );
 }
@@ -104,10 +116,19 @@ function MonthlyChart({ filters }) {
   const { data, error } = useApiData("/api/spend/monthly", filters);
   return (
     <ChartCard title="Monthly Spending Trend" data={data} error={error}>
-      <ResponsiveContainer width="100%" height={460}>
+      <div className="chart-box chart-tall">
+      <ResponsiveContainer width="100%" height="100%">
         <LineChart data={data}  >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="month" tick={{ fontSize: 12 }} interval={3} angle={-10 } />
+          <XAxis
+            dataKey="month"
+            tick={{ fontSize: 12 }}
+            interval="preserveStartEnd"
+            minTickGap={24}
+            angle={-30}
+            textAnchor="end"
+            height={55}
+          />
           <YAxis tickFormatter={formatLakhs} />
           <Tooltip
             {...TOOLTIP_STYLE}
@@ -123,6 +144,7 @@ function MonthlyChart({ filters }) {
           />
         </LineChart>
       </ResponsiveContainer>
+      </div>
     </ChartCard>
   );
 }
@@ -132,7 +154,8 @@ function CategoryPie({ filters }) {
   const rows = data ?? [];
   return (
     <ChartCard title="Category Spending Distribution" data={data} error={error}>
-      <ResponsiveContainer width="100%" height={380}>
+      <div className="chart-box chart-medium">
+      <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <Pie
             data={rows}
@@ -157,6 +180,7 @@ function CategoryPie({ filters }) {
           <Legend />
         </PieChart>
       </ResponsiveContainer>
+      </div>
     </ChartCard>
   );
 }
@@ -177,10 +201,18 @@ function ForecastChart({ filters }) {
       <p className="chart-caption">
         Predicted spend for <strong>{monthLabel}</strong>
       </p>
-      <ResponsiveContainer width="100%" height={380} >
+      <div className="chart-box chart-medium">
+      <ResponsiveContainer width="100%" height="100%">
         <BarChart data={rows}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="category" interval={0} tick={{ fontSize: 12 }} />
+          <XAxis
+            dataKey="category"
+            interval={0}
+            tick={{ fontSize: 12 }}
+            angle={-35}
+            textAnchor="end"
+            height={70}
+          />
           <YAxis tickFormatter={formatLakhs} />
           <Tooltip
             {...TOOLTIP_STYLE}
@@ -190,6 +222,7 @@ function ForecastChart({ filters }) {
           <Bar dataKey="forecast_spend" name="Predicted spend" fill="#f59e0b" />
         </BarChart>
       </ResponsiveContainer>
+      </div>
     </ChartCard>
   );
 }
